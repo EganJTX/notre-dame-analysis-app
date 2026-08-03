@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notre Dame Football Analysis — POC</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.1/plotly.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Inter:wght@400;500;600&display=swap');
+    :root {
+      --nd-blue: #1c4f8f;
+      --nd-gold: #c99700;
+      --nd-green: #0a843d;
+      --nd-red: #b3261e;
+      --surface: #f5f7fa;
+      --surface-raised: #ffffff;
+      --border: rgba(28,79,143,0.12);
+      --text: #1a2035;
+      --text-muted: #5a6478;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    #app-content { width: 100%; max-width: 1440px; }
+
+    /* Header */
+    .app-header {
+      display: flex; align-items: center; gap: 16px;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 28px;
+    }
+    .app-header h1 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 24px; font-weight: 700; color: var(--nd-blue); letter-spacing: -0.3px;
+    }
+    .app-logo { height: 32px; width: auto; flex-shrink: 0; }
+    /* Keeps the logo+title together as one unit when the header wraps on mobile */
+    .app-title-group { display: flex; align-items: center; gap: 10px; }
+    .app-header .subtitle {
+      font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .status-pill {
+      margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; color: var(--nd-green);
+      background: rgba(10,132,61,0.08); border: 1px solid rgba(10,132,61,0.2);
+      border-radius: 20px; padding: 4px 10px;
+    }
+
+    /* Coach selector */
+    .selector-row { margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .selector-row label { font-size: 13px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
+    .selector-row select {
+      padding: 8px 36px 8px 14px; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 14px; font-family: inherit;
+      background: var(--surface-raised); color: var(--text); cursor: pointer;
+      appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a6478'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+      min-width: 220px;
+    }
+    .selector-row select:focus { outline: 2px solid var(--nd-blue); outline-offset: 1px; }
+
+    /* Tabs */
+    .tab-nav { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+    .tab-btn {
+      padding: 10px 22px; border: none; background: none; font-size: 13px; font-family: inherit;
+      font-weight: 500; color: var(--text-muted); cursor: pointer; letter-spacing: 0.2px;
+      border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s;
+    }
+    .tab-btn:hover { color: var(--nd-blue); }
+    .tab-btn.active { color: var(--nd-blue); border-bottom-color: var(--nd-blue); font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Section headers */
+    .section-header-wrap { margin: 32px 0 20px; }
+    .section-header-wrap h4 {
+      font-size: 19px; font-weight: 600; color: var(--nd-blue); letter-spacing: -0.2px;
+      margin-bottom: 10px; display: block;
+    }
+    .section-rule { width: 100%; height: 2px; background: rgba(28,79,143,0.2); border: none; margin: 0 0 20px; }
+    .sub-divider { height: 1px; background: var(--border); margin: 28px 0; }
+    .subsection-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+
+    /* Summary row — fixed 20/20/60 proportions */
+    .summary-row { display: grid; grid-template-columns: 1fr 1fr 3fr; gap: 16px; align-items: stretch; margin-bottom: 0; width: 100%; }
+    .summary-row > * { min-width: 0; overflow: hidden; }
+    .summary-donut { display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 0; align-self: stretch; }
+    .summary-donut > div { width: 100% !important; height: 100% !important; }
+    .summary-kpis { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .summary-kpis .kpi-card { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-bottom: 0; }
+    .summary-chart { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+    .summary-chart > div { flex: 1; }
+
+    /* Layout rows */
+    .row { display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap; }
+    .col-kpi  { flex: 0 0 148px; display: flex; flex-direction: column; }
+    .col-chart { flex: 1; min-width: 300px; }
+    .col-donut { flex: 0 0 20%; display: flex; align-items: center; min-width: 160px; }
+    .col-kpi2  { flex: 0 0 20%; display: flex; flex-direction: column; min-width: 140px; }
+    .col-main  { flex: 0 0 60%; min-width: 0; display: flex; flex-direction: column; }
+    /* KPI column — cards split height evenly */
+    .col-kpi2 .kpi-card, .col-kpi .kpi-card { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    /* Chart wrap fills column height */
+    .col-main.chart-wrap { display: flex; flex-direction: column; }
+    .col-main.chart-wrap > div { flex: 1; min-height: 0; }
+
+    /* KPI cards */
+    .kpi-card {
+      background: var(--surface-raised); padding: 16px 14px; border-radius: 10px;
+      text-align: center; margin-bottom: 12px; border: 1px solid var(--border);
+    }
+    .kpi-card h5 { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .kpi-card .value { font-size: 26px; font-weight: 600; color: var(--nd-blue); font-variant-numeric: tabular-nums; }
+
+    /* KPI card with an attached drill-down action (Splits tab detail buttons) */
+    .kpi-card-action .value { font-size: 20px; }
+    /* Shared button base — .kpi-link-btn (full-width, inside a card) and .btn
+       (auto-width, standalone control) are the same visual language. */
+    .btn, .kpi-link-btn {
+      padding: 7px 14px; border-radius: 6px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--nd-blue); font-size: 12px; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .btn:hover, .kpi-link-btn:hover { background: rgba(28,79,143,0.08); }
+    .kpi-link-btn { margin-top: 10px; width: 100%; }
+
+    /* Standalone control row (Opponents tab sort/show controls) */
+    .controls-row { display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 20px; }
+    .control-group { display: flex; flex-direction: column; gap: 6px; }
+    .control-group label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+    .control-select {
+      padding: 8px 32px 8px 12px; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 13px; font-family: inherit;
+      background: var(--surface-raised); color: var(--text); cursor: pointer;
+      appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a6478'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center;
+      min-width: 170px;
+    }
+    .control-select:focus { outline: 2px solid var(--nd-blue); outline-offset: 1px; }
+
+    /* Inline data table (Opponents tab "Ranks Amongst Peers") — horizontal
+       scroll on narrow screens rather than squeezing every column. */
+    .table-scroll { overflow-x: auto; }
+    .cell-positive { background: #d4edda; }
+    .cell-negative { background: #f8d7da; }
+    .muted-note { font-style: italic; color: var(--text-muted); font-size: 13.5px; }
+
+    /* Split-view row: donut | stats | donut | stats (Splits tab) */
+    .split-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+    .split-row > * { min-width: 0; overflow: hidden; }
+    /* Matches the Summary tab's donut height (.summary-donut ends up ~318px
+       there — its row is stretched by the bar chart column, height:300, that
+       sits alongside it) so this donut renders at the same size, not bigger.
+       A fixed min-height gets there deterministically instead of leaving it
+       to race the shorter stats column's content height via grid stretch,
+       which is what compressed the two annotation lines together before
+       this cell had settled its final height. */
+    .split-donut { display: flex; align-items: center; justify-content: center; overflow: hidden; min-width: 0; min-height: 318px; }
+    .split-donut > div { width: 100% !important; height: 100% !important; }
+    .split-stats { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .split-stats .kpi-card { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-bottom: 0; }
+
+    /* Modal (reusable — any tab can open a detail table over the current view) */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(20,26,43,0.45);
+      z-index: 1000; align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-panel {
+      background: var(--surface-raised); border-radius: 12px; max-width: 760px; width: 100%;
+      max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .modal-header h4 { font-size: 16px; font-weight: 600; color: var(--nd-blue); }
+    .modal-close {
+      background: none; border: none; font-size: 22px; line-height: 1;
+      cursor: pointer; color: var(--text-muted); padding: 4px 8px;
+    }
+    .modal-close:hover { color: var(--nd-blue); }
+    .modal-body { padding: 4px 20px 20px; overflow: auto; }
+    .detail-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .detail-table th {
+      text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border);
+      color: var(--text-muted); font-weight: 600; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.4px; position: sticky; top: 0; background: var(--surface-raised);
+    }
+    .detail-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); }
+    .detail-table tbody tr:hover { background: rgba(28,79,143,0.04); }
+
+    /* Narrative */
+    .narrative {
+      margin: 16px 0 8px; font-size: 13.5px; line-height: 1.7;
+      color: var(--text-muted); width: 100%;
+      padding: 12px 16px; background: rgba(28,79,143,0.04);
+      border-left: 3px solid var(--nd-blue); border-radius: 0 6px 6px 0;
+    }
+    /* Semantic narrative highlights: green when the stat favors Notre Dame,
+       red when it favors the opponent, blue for a factual/comparative number
+       that isn't inherently good or bad (e.g. the "unranked" half of a
+       ranked-vs-unranked split). */
+    .hl-good    { color: var(--nd-green); font-weight: 700; }
+    .hl-bad     { color: var(--nd-red);   font-weight: 700; }
+    .hl-neutral { color: var(--nd-blue);  font-weight: 700; }
+
+    /* Section header with an inline control to its right (Opponent Focus's
+       opponent selector) */
+    .section-with-control { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .section-with-control .section-header-wrap { flex: 1; min-width: 240px; margin-bottom: 0; }
+
+    /* Row of equal-width KPI cards, no donut/chart alongside */
+    .card-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .card-row .kpi-card { flex: 1; min-width: 150px; margin-bottom: 0; }
+
+    /* Chart wrapper */
+    .chart-wrap { background: var(--surface-raised); border-radius: 10px; padding: 8px; border: 1px solid var(--border); }
+
+    /* Loading */
+    #loading-msg {
+      text-align: center; padding: 80px; color: var(--text-muted);
+      font-size: 15px; letter-spacing: 0.3px;
+    }
+    #app-content { display: none; }
+
+    /* Placeholder tabs */
+    .placeholder {
+      text-align: center; padding: 80px; color: var(--text-muted);
+      font-size: 14px; border: 1px dashed var(--border); border-radius: 10px;
+      margin-top: 8px;
+    }
+    .placeholder::before { content: 'Coming soon'; display: block; font-weight: 600; color: var(--nd-blue); font-size: 16px; margin-bottom: 8px; }
+
+    /* ── Responsive breakpoints ───────────────── */
+    /* Tablet: collapse the 20/20/60 summary grid to two columns,
+       with the wins-by-season chart spanning full width below. */
+    @media (max-width: 900px) {
+      .summary-row { grid-template-columns: 1fr 1fr; }
+      .summary-chart { grid-column: 1 / -1; }
+      .summary-donut { min-height: 220px; }
+      /* Splits tab: donut/stats pairs stack into a 2x2 grid instead of 4 across.
+         Track .summary-donut's min-height at this breakpoint so both tabs'
+         donut+card rows shrink together instead of Splits staying pinned to
+         its desktop size while Summary's shrinks. */
+      .split-row { grid-template-columns: 1fr 1fr; }
+      .split-donut { min-height: 220px; }
+    }
+
+    /* Mobile: single-column stack, tighter body padding, wrapping header/selector rows. */
+    @media (max-width: 640px) {
+      body { padding: 20px 16px; }
+      .app-header { flex-wrap: wrap; row-gap: 8px; }
+      .status-pill { margin-left: 0; }
+      .selector-row { flex-wrap: wrap; }
+      .selector-row select { min-width: 0; width: 100%; }
+      .summary-row { grid-template-columns: 1fr; }
+      .summary-chart { grid-column: auto; }
+      .summary-donut { min-height: 260px; }
+      .col-kpi { flex: 1 1 100%; }
+      .split-row { grid-template-columns: 1fr; }
+      .split-donut { min-height: 260px; }
+      .modal-panel { max-height: 90vh; }
+      .modal-body { padding: 4px 14px 16px; }
+      .controls-row { flex-wrap: wrap; }
+      .control-group { width: 100%; }
+      .control-select { min-width: 0; width: 100%; }
+      .section-with-control { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading-msg">Loading Notre Dame data…</div>
+
+<div id="app-content">
+
+  <div class="app-header">
+    <div class="app-title-group">
+    <img src="data:image/png;base64,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" alt="" class="app-logo" />
+      <h1>Notre Dame Football Analysis</h1>
+    </div>
+    <span class="subtitle">1887 – Present</span>
+    <span class="status-pill">Summary Live</span>
+  </div>
+
+  <div class="selector-row">
+    <label>Select coach to focus on:</label>
+    <select id="coach-select" onchange="onCoachChange()">
+      <option value="All">All</option>
+    </select>
+  </div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('summary', this)">Summary</button>
+    <button class="tab-btn" onclick="switchTab('splits', this)">Splits</button>
+    <button class="tab-btn" onclick="switchTab('opponents', this)">Opponents</button>
+    <button class="tab-btn" onclick="switchTab('opponent-focus', this)">Opponent Focus</button>
+  </div>
+
+  <!-- ===== SUMMARY TAB ===== -->
+  <div id="tab-summary" class="tab-content active">
+
+    <div class="section-header-wrap"><h4>Summary</h4><hr class="section-rule"></div>
+
+    <div class="summary-row">
+      <div class="summary-donut">
+        <div id="donut-overall"></div>
+      </div>
+      <div class="summary-kpis">
+        <div class="kpi-card">
+          <h5>Total Wins</h5>
+          <div class="value" id="kpi-wins">—</div>
+        </div>
+        <div class="kpi-card">
+          <h5>Total Unranked Wins</h5>
+          <div class="value" id="kpi-unranked-wins">—</div>
+        </div>
+      </div>
+      <div class="summary-chart chart-wrap">
+        <div id="chart-wins-by-season"></div>
+      </div>
+    </div>
+
+    <div class="narrative" id="narrative-summary"></div>
+
+    <!-- Ranked Games -->
+    <div class="section-header-wrap"><h4>Ranked Games</h4><hr class="section-rule"></div>
+
+    <p class="subsection-label">Games vs Teams Ranked at End of Season</p>
+    <div class="row">
+      <div class="col-kpi">
+        <div class="kpi-card"><h5>Total Games</h5><div class="value" id="kpi-final25-games">—</div></div>
+        <div class="kpi-card"><h5>Total Wins</h5><div class="value" id="kpi-final25-wins">—</div></div>
+        <div class="kpi-card"><h5>Win %</h5><div class="value" id="kpi-final25-pct">—</div></div>
+      </div>
+      <div class="col-chart chart-wrap">
+        <div id="chart-ranked-final"></div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <p class="subsection-label">Games vs Teams Ranked at Time of Game</p>
+    <div class="row">
+      <div class="col-kpi">
+        <div class="kpi-card"><h5>Total Games</h5><div class="value" id="kpi-game25-games">—</div></div>
+        <div class="kpi-card"><h5>Total Wins</h5><div class="value" id="kpi-game25-wins">—</div></div>
+        <div class="kpi-card"><h5>Win %</h5><div class="value" id="kpi-game25-pct">—</div></div>
+      </div>
+      <div class="col-chart chart-wrap">
+        <div id="chart-ranked-atgame"></div>
+      </div>
+    </div>
+
+    <!-- Comparison to Legends -->
+    <div class="section-header-wrap"><h4>Comparison to Legends</h4><hr class="section-rule"></div>
+    <p class="subsection-label" id="legend-subtitle">
+      Running Winning % of Selected Coach compared to Legendary and Non-Legendary Coaches at Notre Dame
+    </p>
+    <div class="chart-wrap">
+      <div id="chart-legend-line"></div>
+    </div>
+
+  </div><!-- /summary tab -->
+
+  <!-- ===== SPLITS TAB ===== -->
+  <div id="tab-splits" class="tab-content">
+
+    <!-- Home & Away Splits (all opponents) -->
+    <div class="section-header-wrap"><h4>Home &amp; Away Splits</h4><hr class="section-rule"></div>
+
+    <div class="split-row">
+      <div class="split-donut"><div id="donut-home"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card"><h5>Total Home Games</h5><div class="value" id="kpi-home-games">—</div></div>
+        <div class="kpi-card"><h5>Home Record</h5><div class="value" id="kpi-home-record">—</div></div>
+      </div>
+      <div class="split-donut"><div id="donut-away"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card"><h5>Total Away Games</h5><div class="value" id="kpi-away-games">—</div></div>
+        <div class="kpi-card"><h5>Away Record</h5><div class="value" id="kpi-away-record">—</div></div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+    <p class="subsection-label">Home &amp; Away Win Percentage Over Time</p>
+    <div class="chart-wrap"><div id="chart-trend-homeaway"></div></div>
+
+    <!-- Home & Away Splits vs ranked-at-time-of-game opponents -->
+    <div class="section-header-wrap"><h4>Home &amp; Away Splits vs. Ranked at Time of Game Opponents</h4><hr class="section-rule"></div>
+
+    <div class="split-row">
+      <div class="split-donut"><div id="donut-home-ranked"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card"><h5>Total Home Games</h5><div class="value" id="kpi-home-r-games">—</div></div>
+        <div class="kpi-card"><h5>Home Record</h5><div class="value" id="kpi-home-r-record">—</div></div>
+      </div>
+      <div class="split-donut"><div id="donut-away-ranked"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card"><h5>Total Away Games</h5><div class="value" id="kpi-away-r-games">—</div></div>
+        <div class="kpi-card"><h5>Away Record</h5><div class="value" id="kpi-away-r-record">—</div></div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+    <p class="subsection-label">Home &amp; Away Win Percentage Over Time (Ranked at Time of Game Opponents)</p>
+    <div class="chart-wrap"><div id="chart-trend-homeaway-ranked"></div></div>
+
+    <!-- Notre Dame Ranked vs Unranked Splits -->
+    <div class="section-header-wrap"><h4>Notre Dame Ranked vs Unranked Splits</h4><hr class="section-rule"></div>
+
+    <div class="split-row">
+      <div class="split-donut"><div id="donut-nd-ranked"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card kpi-card-action">
+          <h5>ND Ranked, Opp Unranked</h5>
+          <div class="value" id="kpi-nd-r-opp-u">—</div>
+          <button class="kpi-link-btn" onclick="openSplitsDetail('nd_r_opp_u')">View Game Details</button>
+        </div>
+        <div class="kpi-card kpi-card-action">
+          <h5>ND Ranked, Opp Ranked</h5>
+          <div class="value" id="kpi-nd-r-opp-r">—</div>
+          <button class="kpi-link-btn" onclick="openSplitsDetail('nd_r_opp_r')">View Game Details</button>
+        </div>
+      </div>
+      <div class="split-donut"><div id="donut-nd-unranked"></div></div>
+      <div class="split-stats">
+        <div class="kpi-card kpi-card-action">
+          <h5>ND Unranked, Opp Ranked</h5>
+          <div class="value" id="kpi-nd-u-opp-r">—</div>
+          <button class="kpi-link-btn" onclick="openSplitsDetail('nd_u_opp_r')">View Game Details</button>
+        </div>
+        <div class="kpi-card kpi-card-action">
+          <h5>ND Unranked, Opp Unranked</h5>
+          <div class="value" id="kpi-nd-u-opp-u">—</div>
+          <button class="kpi-link-btn" onclick="openSplitsDetail('nd_u_opp_u')">View Game Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-divider"></div>
+    <p class="subsection-label">Notre Dame Avg Rank vs. Opponent Avg Rank Over Time</p>
+    <div class="chart-wrap"><div id="chart-trend-avgrank"></div></div>
+
+  </div><!-- /splits tab -->
+
+  <!-- ===== OPPONENTS TAB ===== -->
+  <div id="tab-opponents" class="tab-content">
+
+    <div class="section-header-wrap"><h4>Top Opponents Faced</h4><hr class="section-rule"></div>
+
+    <div class="controls-row">
+      <div class="control-group">
+        <label>Sort by</label>
+        <select id="opp-sort-select" class="control-select" onchange="onOppSortChange()">
+          <option value="Games">Games</option>
+          <option value="Win Percentage">Win Percentage</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Show</label>
+        <button class="btn" onclick="onOppShowMore()">10 More</button>
+      </div>
+      <div class="control-group">
+        <label>Reset</label>
+        <button class="btn" onclick="onOppReset()">To Default</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-chart chart-wrap"><div id="chart-opp-games"></div></div>
+      <div class="col-chart chart-wrap"><div id="chart-opp-winpct"></div></div>
+    </div>
+
+    <div class="section-header-wrap"><h4>Ranks Amongst Peers</h4><hr class="section-rule"></div>
+    <div id="opp-ranks-container"></div>
+
+  </div><!-- /opponents tab -->
+
+  <!-- ===== OPPONENT FOCUS TAB ===== -->
+  <div id="tab-opponent-focus" class="tab-content">
+
+    <div class="section-with-control">
+      <div class="section-header-wrap"><h4>Series Summary</h4><hr class="section-rule"></div>
+      <div class="control-group">
+        <label>Opponent</label>
+        <select id="focus-opponent-select" class="control-select" onchange="onFocusOpponentChange()"></select>
+      </div>
+    </div>
+
+    <div class="narrative" id="focus-narrative"></div>
+
+    <div class="section-header-wrap"><h4>Selected Coach Opponent Overview</h4><hr class="section-rule"></div>
+
+    <div class="card-row">
+      <div class="kpi-card"><h5>Total Games</h5><div class="value" id="focus-kpi-games">—</div></div>
+      <div class="kpi-card"><h5>Record</h5><div class="value" id="focus-kpi-record">—</div></div>
+      <div class="kpi-card"><h5>Avg ND Rank</h5><div class="value" id="focus-kpi-nd-rank">—</div></div>
+      <div class="kpi-card"><h5>Avg Opp Rank</h5><div class="value" id="focus-kpi-opp-rank">—</div></div>
+    </div>
+
+    <div class="table-scroll"><table class="detail-table" id="focus-game-table"></table></div>
+
+  </div><!-- /opponent focus tab -->
+
+</div><!-- /app-content -->
+
+<!-- ===== SHARED DETAIL MODAL (reusable across tabs) ===== -->
+<div id="detail-modal-overlay" class="modal-overlay" onclick="if(event.target===this) closeDetailModal()">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h4 id="detail-modal-title"></h4>
+      <button class="modal-close" onclick="closeDetailModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <table class="detail-table">
+        <thead id="detail-modal-thead"></thead>
+        <tbody id="detail-modal-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// CONFIG
+// ─────────────────────────────────────────────
+// Game data is fetched at runtime from data.json (produced by a
+// scheduled scraper action) rather than embedded in this file.
+const LEGEND_COACHES = ["ROCKNE", "LEAHY", "PARSEGHIAN", "HOLTZ"];
+const C_BLUE    = "#1c4f8f";
+const C_GREEN   = "#0a843d";
+const C_LIGHT   = "#c1cddd";
+const C_GREY    = "#999999";
+
+// Shared hover style — apply to every chart's hoverlabel block
+const HOVER_STYLE = {
+  bgcolor: "white",
+  bordercolor: C_BLUE,
+  font: { color: C_GREEN, size: 13 }
+};
+
+// Plotly's auto-tick step for a plain linear axis isn't guaranteed to land on
+// whole numbers — a narrow span (e.g. a one-season coach) can pick something
+// like dtick 0.5, which reads as "Season 2003.5": meaningless, since a season
+// is a proxy for a year. Force a step that's always a whole number instead.
+// Used for every Season/Year axis in the app (Summary's bar chart, every
+// Splits trend line).
+function integerAxisTicks(values) {
+  if (!values.length) return { tickmode: "linear", dtick: 1 };
+  const span = Math.max(...values) - Math.min(...values);
+  let dtick = 1;
+  if (span > 8)   dtick = 2;
+  if (span > 20)  dtick = 5;
+  if (span > 50)  dtick = 10;
+  if (span > 100) dtick = 20;
+  const tick0 = Math.floor(Math.min(...values) / dtick) * dtick;
+  return { tickmode: "linear", dtick, tick0 };
+}
+
+// A bare data-driven axis range starts exactly at the first data point, so a
+// bar or line there sits flush against the y-axis with no breathing room.
+// Pad both ends a bit — by a fraction of a tick step when the axis has one
+// (keeps a bar/line chart's padding proportional to its tick spacing),
+// otherwise a small fraction of the data's span. For bar charts, pass
+// barHalfWidth (the widest bar's half-width, in x-axis data units) so the
+// padding leaves a gap *beyond* the bar's own footprint — otherwise the
+// bar's width alone eats almost all of the cushion and the gap stays
+// invisible; pass a smaller cushionScale to trim just the visible-gap part
+// of the padding without eating into that required bar-width allowance.
+function paddedRange(values, dtick, barHalfWidth = 0, cushionScale = 1) {
+  if (!values.length) return undefined;
+  const min = Math.min(...values), max = Math.max(...values);
+  const cushion = (dtick ? dtick * 0.5 : (max - min || 1) * 0.05) * cushionScale;
+  const pad = cushion + barHalfWidth;
+  return [min - pad, max + pad];
+}
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let allData = [];       // fully processed rows (all coaches)
+let selectedCoach = "All";
+const unifiedHoverWired = new WeakSet();   // wireUnifiedHoverDots() attaches its listener only once per chart
+let splitsDetailData = {};   // rows behind each "View Game Details" modal button, keyed by category
+let oppDisplayCount = 10;    // "Top Opponents Faced" — how many rows to show; persists across coach changes
+let oppSortBy = "Games";     // "Games" | "Win Percentage"; persists across coach changes
+let globalOpponentStats = null;   // computed once from allData on first Opponents render (rank/legend/all-coaches stats don't depend on selectedCoach)
+let focusOpponent = null;    // "Opponent Focus" — which opponent's series is shown; persists across coach changes
+
+// Each tab renders lazily: the first time it's opened, and again whenever the
+// coach changes while some OTHER tab is on screen (it's marked dirty and
+// re-renders next time the user opens it, instead of rendering hidden and
+// invisible — which is exactly what left charts stuck at a fallback width
+// until forced open with a resize).
+const TAB_RENDERERS = { summary: renderSummaryTab, splits: renderSplitsTab, opponents: renderOpponentsTab, "opponent-focus": renderOpponentFocusTab };
+const tabDirty = { summary: false, splits: true, opponents: true, "opponent-focus": true };
+
+// ─────────────────────────────────────────────
+// BOOT — fetch data.json (written by the scraper action) and initialise
+// ─────────────────────────────────────────────
+
+(function init() {
+  fetch("data.json")
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load data.json (${res.status})`);
+      return res.json();
+    })
+    .then(rawData => {
+      allData = buildDataset(rawData);
+      populateCoachDropdown();
+      populateOpponentDropdown();
+      // Show the container before rendering into it — Plotly reads offsetWidth
+      // synchronously, and a display:none ancestor makes that read 0, which is
+      // exactly what left the "x unified" legend chart stuck at a fallback width
+      // until a real window resize forced its ResizeObserver to recheck.
+      document.getElementById("loading-msg").style.display = "none";
+      document.getElementById("app-content").style.display  = "block";
+      renderAll();
+    })
+    .catch(err => {
+      console.error("Failed to load application data:", err);
+      document.getElementById("loading-msg").textContent = "Unable to load data. Please try again later.";
+    });
+})();
+
+// Fixed-width Plotly charts (responsive: false) compute their pixel width once
+// from the container's offsetWidth. CSS breakpoints alone won't resize them, so
+// re-run each chart's stored render closure whenever the viewport crosses one.
+let resizeDebounce;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeDebounce);
+  resizeDebounce = setTimeout(() => {
+    // Fixed-width Plotly charts (responsive: false) compute their pixel width
+    // once from the container's offsetWidth, so CSS breakpoints alone won't
+    // resize them. Only the on-screen tab needs refitting — hidden tabs
+    // re-render fresh (and correctly sized) the next time they're opened.
+    renderTab(activeTabId());
+  }, 150);
+});
+
+// ─────────────────────────────────────────────
+// DATA PROCESSING
+// ─────────────────────────────────────────────
+function toTitle(s) {
+  if (!s) return "";
+  return s.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function parseRank(val, isND = false) {
+  if (val === null || val === undefined) return NaN;
+  const v = String(val).trim().toUpperCase();
+  if (v === "" || v === "NO POLL") return NaN;   // NO POLL → NaN regardless
+  if (isND && v === "NO POLL") return NaN;
+  if (v.includes("UNRANKED")) return 26;
+  if (v === "SEASON IN PROGRESS") return NaN;
+  const n = parseFloat(v.replace(/[^\d.]/g, ""));
+  return isNaN(n) ? NaN : n;
+}
+
+function normalizeSite(val) {
+  const v = String(val || "").trim().toUpperCase();
+  if (v === "H" || v === "HOME") return "Home";
+  if (v === "A" || v === "AWAY") return "Away";
+  if (v === "N" || v === "NEUTRAL") return "Neutral";
+  return v ? toTitle(v) : "";
+}
+
+function buildDataset(rows) {
+  // 1. Parse and normalise each row
+  const parsed = rows.map(r => {
+    const dateObj = new Date(r["Date"]);
+    if (isNaN(dateObj)) return null;
+
+    let season = dateObj.getFullYear();
+    if (dateObj.getMonth() === 0) season--;   // January bowl → prior season
+
+    const win  = r["Result"] === "W" ? 1 : 0;
+    const coach = toTitle(r["ND Coach"] || "");
+    const isLegend = LEGEND_COACHES.includes((r["ND Coach"] || "").trim().toUpperCase());
+
+    return {
+      ...r,
+      "ND Coach":   coach,
+      "Opp Coach":  toTitle(r["Opp Coach"] || ""),
+      "Opponent":   toTitle(r["Opponent"]  || ""),
+      dateObj, season,
+      win, loss: r["Result"] === "L" ? 1 : 0,
+      oppFinalRank: parseRank(r["Opp Final Rank"]),
+      oppRankAtGame: parseRank(r["Opp Rank"]),
+      ndRankClean:  parseRank(r["ND Rank"], true),
+      site: normalizeSite(r["Site"]),
+      ndScore: Number(r["ND Score"]),
+      oppScore: Number(r["Opp Score"]),
+      ndRankDisplay: r["ND Rank"],
+      oppRankDisplay: r["Opp Rank"],
+      isLegend,
+      legendLabel: isLegend ? "Legendary Coach" : "Non-Legendary Coach"
+    };
+  }).filter(Boolean);
+
+  // 2. Sort by coach + date, then compute running win %
+  parsed.sort((a, b) =>
+    a["ND Coach"] < b["ND Coach"] ? -1 :
+    a["ND Coach"] > b["ND Coach"] ?  1 :
+    a.dateObj - b.dateObj
+  );
+
+  const cnts = {}, wins = {};
+  parsed.forEach(r => {
+    const c = r["ND Coach"];
+    cnts[c] = (cnts[c] || 0) + 1;
+    wins[c] = (wins[c] || 0) + r.win;
+    r.gameNum = cnts[c];
+    r.runningWins = wins[c];
+    r.runningWinPct = wins[c] / cnts[c];
+  });
+
+  return parsed;
+}
+
+// ─────────────────────────────────────────────
+// COACH DROPDOWN
+// ─────────────────────────────────────────────
+function populateCoachDropdown() {
+  const coaches = [...new Set(allData.map(r => r["ND Coach"]))].sort();
+  const sel = document.getElementById("coach-select");
+  coaches.forEach(c => {
+    const o = document.createElement("option");
+    o.value = o.textContent = c;
+    sel.appendChild(o);
+  });
+}
+
+function populateOpponentDropdown() {
+  const opponents = [...new Set(allData.map(r => r["Opponent"]))].filter(Boolean).sort();
+  const sel = document.getElementById("focus-opponent-select");
+  opponents.forEach(o => {
+    const opt = document.createElement("option");
+    opt.value = opt.textContent = o;
+    sel.appendChild(opt);
+  });
+  focusOpponent = opponents.includes("Michigan") ? "Michigan" : opponents[0];
+  sel.value = focusOpponent;
+}
+
+function onFocusOpponentChange() {
+  focusOpponent = document.getElementById("focus-opponent-select").value;
+  renderTab("opponent-focus");
+}
+
+function onCoachChange() {
+  selectedCoach = document.getElementById("coach-select").value;
+  renderAll();
+}
+
+function getView() {
+  return selectedCoach === "All"
+    ? allData
+    : allData.filter(r => r["ND Coach"] === selectedCoach);
+}
+
+// ─────────────────────────────────────────────
+// TAB SWITCHING
+// ─────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+  document.getElementById("tab-" + id).classList.add("active");
+  btn.classList.add("active");
+  if (tabDirty[id]) renderTab(id);
+}
+
+// ─────────────────────────────────────────────
+// RENDER ORCHESTRATOR
+// ─────────────────────────────────────────────
+function activeTabId() {
+  const el = document.querySelector(".tab-content.active");
+  return el ? el.id.replace(/^tab-/, "") : "summary";
+}
+
+function renderTab(id) {
+  const fn = TAB_RENDERERS[id];
+  if (fn) { fn(getView()); tabDirty[id] = false; }
+}
+
+function renderAll() {
+  // Re-render whatever tab is on screen right now; every other tab is
+  // marked dirty so it picks up the new coach/data next time it's opened.
+  Object.keys(tabDirty).forEach(id => { tabDirty[id] = true; });
+  renderTab(activeTabId());
+}
+
+// ─────────────────────────────────────────────
+// SUMMARY TAB
+// ─────────────────────────────────────────────
+function renderSummaryTab(df) {
+
+  // ── KPIs ──────────────────────────────────
+  const totalGames = df.length;
+  const totalWins  = df.reduce((s, r) => s + r.win, 0);
+  const totalLoss  = totalGames - totalWins;
+
+  // Completed games only (exclude in-progress season rows)
+  const completed  = df.filter(r =>
+    String(r["Opp Final Rank"] || "").toUpperCase() !== "SEASON IN PROGRESS"
+  );
+  const completedWins = completed.reduce((s, r) => s + r.win, 0);
+
+  const unrankedWins = completed.filter(r =>
+    r.win === 1 && !(r.oppFinalRank >= 1 && r.oppFinalRank <= 25)
+  ).length;
+  const rankedWins = completed.filter(r =>
+    r.win === 1 && r.oppFinalRank >= 1 && r.oppFinalRank <= 25
+  ).length;
+
+  const unrankedRate = completedWins > 0
+    ? (unrankedWins / completedWins * 100).toFixed(1)
+    : "0.0";
+
+  document.getElementById("kpi-wins").textContent = totalWins;
+  document.getElementById("kpi-unranked-wins").textContent = unrankedWins;
+  document.getElementById("narrative-summary").innerHTML =
+    `The selected coach accumulated <strong style="color:${C_GREEN}">${unrankedRate}%</strong> ` +
+    `of his wins vs opponents that finished the season unranked or games played prior to polling.`;
+
+  // ── Overall donut ──────────────────────────
+  plotDonut("donut-overall", totalWins, totalLoss, "Overall<br>Win %");
+
+  // ── Wins by season bar ─────────────────────
+  const bySeasonMap = {};
+  df.filter(r => r.win).forEach(r => {
+    bySeasonMap[r.season] = (bySeasonMap[r.season] || 0) + 1;
+  });
+  const seasons = Object.keys(bySeasonMap).map(Number).sort((a,b) => a - b);
+
+  const wbsEl = document.getElementById("chart-wins-by-season");
+  const wbsTicks = integerAxisTicks(seasons);
+  const renderWinsBySeason = () => {
+    const wbsW = wbsEl.parentElement.offsetWidth || 400;
+    Plotly.react("chart-wins-by-season", [{
+      type: "bar",
+      x: seasons,
+      y: seasons.map(s => bySeasonMap[s]),
+      marker: { color: C_BLUE },
+      text: selectedCoach !== "All" ? seasons.map(s => bySeasonMap[s]) : undefined,
+      textposition: "outside",
+      cliponaxis: false,
+      hovertemplate: "Season = %{x}<br>Wins = %{y}<extra></extra>"
+    }], {
+      title: { text: "Total Wins by Season", x: 0.5 },
+      width: wbsW,
+      height: 300,
+      plot_bgcolor: "white",
+      margin: { t: 55, b: 55, l: 30, r: 20 },
+      hoverlabel: HOVER_STYLE,
+      xaxis: { title: "Season", ...wbsTicks, range: paddedRange(seasons, wbsTicks.dtick, 0.4, 0.5), zeroline: false },
+      yaxis: { title: "Wins" }
+    }, { responsive: false });
+  };
+  renderWinsBySeason();
+  requestAnimationFrame(renderWinsBySeason);
+
+  // ── Ranked at end of season ────────────────
+  const top25Final = df.filter(r => r.oppFinalRank >= 1 && r.oppFinalRank <= 25);
+  updateRankedKPIs("final25", top25Final);
+  plotOverlayBar(
+    "chart-ranked-final", top25Final, "oppFinalRank",
+    "Opponent Final Rank", "Games against Top 25 at Finish"
+  );
+
+  // ── Ranked at time of game ─────────────────
+  const top25Game = df.filter(r => r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25);
+  updateRankedKPIs("game25", top25Game);
+  plotOverlayBar(
+    "chart-ranked-atgame", top25Game, "oppRankAtGame",
+    "Opponent Rank at Time of Game", "Games against Top 25 at Time of Game"
+  );
+
+  // ── Legend line chart ──────────────────────
+  renderLegendLine(df);
+}
+
+// ─────────────────────────────────────────────
+// CHART HELPERS
+// ─────────────────────────────────────────────
+function plotDonut(elId, wins, losses, label) {
+  const total = wins + losses;
+  const pctText = total > 0 ? (wins / total * 100).toFixed(1) + "%" : "—";
+  const el = document.getElementById(elId);
+  const renderDonut = () => {
+    const w = el.parentElement.offsetWidth || 220;
+    const h = el.parentElement.offsetHeight || w;
+    Plotly.react(elId, [{
+      type: "pie",
+      labels: ["Wins", "Losses"],
+      values: [wins, losses],
+      hole: 0.62,
+      marker: { colors: [C_BLUE, "#edf2f9"] },
+      textinfo: "none",
+      hovertemplate: "%{label} = %{value}<extra></extra>"
+    }], {
+      annotations: [
+        { text: label, x: 0.5, y: 0.57, showarrow: false,
+          font: { size: 12, color: "#4e586e" } },
+        { text: pctText, x: 0.5, y: 0.44, showarrow: false,
+          font: { size: 24, color: C_BLUE, family: "Arial" } }
+      ],
+      showlegend: false,
+      margin: { t: 10, b: 10, l: 10, r: 10 },
+      width: w,
+      height: h,
+      hoverlabel: HOVER_STYLE
+    }, { responsive: false });
+  };
+  renderDonut();
+  requestAnimationFrame(renderDonut);
+}
+
+function plotOverlayBar(elId, data, rankField, xTitle, title) {
+  const map = {};
+  data.forEach(r => {
+    const k = r[rankField];
+    if (!map[k]) map[k] = { g: 0, w: 0 };
+    map[k].g++;
+    map[k].w += r.win;
+  });
+
+  const ranks = Object.keys(map).map(Number).sort((a, b) => a - b);
+  const games  = ranks.map(k => map[k].g);
+  const wins   = ranks.map(k => map[k].w);
+  const pcts   = ranks.map(k => map[k].w / map[k].g);
+
+  const overlayEl = document.getElementById(elId);
+  const renderOverlay = () => {
+    const ovW = overlayEl.parentElement.offsetWidth || 400;
+    Plotly.react(elId, [
+      { type:"bar", name:"Games",  x: ranks, y: games,
+        marker: { color: C_LIGHT }, width: 0.9,
+        customdata: pcts,
+        hovertemplate: "Games: %{y}<br>Win %: %{customdata:.1%}<extra></extra>" },
+      { type:"bar", name:"Wins",   x: ranks, y: wins,
+        marker: { color: C_BLUE  }, width: 0.5,
+        customdata: pcts,
+        hovertemplate: "Wins: %{y}<br>Win %: %{customdata:.1%}<extra></extra>" }
+    ], {
+      barmode: "overlay",
+      title: { text: title, x: 0.5, y: 1, yanchor: "top", pad: { t: 6 } },
+      width: ovW,
+      height: 420,
+      plot_bgcolor: "white",
+      margin: { t: 90, b: 50, l: 50, r: 20 },
+      hoverlabel: HOVER_STYLE,
+      legend: { orientation: "h", x: 0.5, xanchor: "center", y: 1.12, yanchor: "bottom", font: { size: 11 }, bgcolor: "rgba(255,255,255,0.8)", bordercolor: "rgba(28,79,143,0.15)", borderwidth: 1 },
+      xaxis: { title: xTitle, tickmode: "linear", dtick: 1, tickangle: 0, range: paddedRange(ranks, 1, 0.45, 0.5), zeroline: false },
+      yaxis: selectedCoach !== "All"
+        ? { title: "Number of Games", tickmode: "linear", dtick: 1 }
+        : { title: "Number of Games" }
+    }, { responsive: false });
+  };
+  renderOverlay();
+  requestAnimationFrame(renderOverlay);
+}
+
+function updateRankedKPIs(prefix, data) {
+  const g = data.length;
+  const w = data.reduce((s, r) => s + r.win, 0);
+  document.getElementById(`kpi-${prefix}-games`).textContent = g;
+  document.getElementById(`kpi-${prefix}-wins`).textContent  = w;
+  document.getElementById(`kpi-${prefix}-pct`).textContent   =
+    g > 0 ? (w / g * 100).toFixed(1) + "%" : "—";
+}
+
+function renderLegendLine(df) {
+  // Use allData (full dataset) for legend/non-legend averages
+  const legendMap = {}, nonLegendMap = {};
+
+  allData.forEach(r => {
+    const gn = r.gameNum;
+    if (r.isLegend) {
+      if (!legendMap[gn]) legendMap[gn] = { sum: 0, n: 0 };
+      legendMap[gn].sum += r.runningWinPct;
+      legendMap[gn].n++;
+    } else {
+      if (!nonLegendMap[gn]) nonLegendMap[gn] = { sum: 0, n: 0 };
+      nonLegendMap[gn].sum += r.runningWinPct;
+      nonLegendMap[gn].n++;
+    }
+  });
+
+  const lx = Object.keys(legendMap).map(Number).sort((a,b)=>a-b);
+  const ly = lx.map(k => legendMap[k].sum / legendMap[k].n);
+
+  const nx = Object.keys(nonLegendMap).map(Number).sort((a,b)=>a-b);
+  const ny = nx.map(k => nonLegendMap[k].sum / nonLegendMap[k].n);
+
+  const traces = [
+    { type:"scatter", mode:"lines", name:"Legendary Coaches",
+      x: lx, y: ly, line: { color: C_BLUE,  width: 2.5 },
+      hovertemplate: "Legendary Coaches : %{y:.1%}<extra></extra>" },
+    { type:"scatter", mode:"lines", name:"Non-Legendary Coaches",
+      x: nx, y: ny, line: { color: C_GREY,  width: 2.5 },
+      hovertemplate: "Non-Legendary Coaches : %{y:.1%}<extra></extra>" }
+  ];
+
+  if (selectedCoach !== "All") {
+    const coachRows = df.slice().sort((a,b) => a.gameNum - b.gameNum);
+    traces.push({
+      type: "scatter", mode: "lines", name: selectedCoach,
+      x: coachRows.map(r => r.gameNum),
+      y: coachRows.map(r => r.runningWinPct),
+      line: { color: C_GREEN, width: 2.5 },
+      hovertemplate: `${selectedCoach} : %{y:.1%}<extra></extra>`
+    });
+  }
+
+  const allGameNums = traces.flatMap(t => t.x);
+
+  Plotly.react("chart-legend-line", traces, {
+    height: 480,
+    plot_bgcolor: "white",
+    margin: { t: 20, b: 80, l: 65, r: 20 },
+    hovermode: "x unified",
+    hoverlabel: { bgcolor: "white", bordercolor: C_BLUE, font: { size: 12 } },
+    xaxis: { title: "Game Number", gridcolor: "#e1e8f2", range: paddedRange(allGameNums), zeroline: false },
+    yaxis: {
+      title: "Running Win %",
+      tickformat: ".0%",
+      range: [0, 1],
+      gridcolor: "#e1e8f2"
+    },
+    legend: { orientation: "h", y: -0.18 }
+  }, { responsive: true });
+
+  wireUnifiedHoverDots(document.getElementById("chart-legend-line"), "Game Number");
+}
+
+// "x unified" hover shows a plain axis value as its header and a colored
+// line swatch per row. Plotly has no config for either, so we patch just
+// that ephemeral tooltip markup: prefix the header with a label, and swap
+// each row's line swatch for a dot. The underlying traces/markers are
+// untouched — this never touches the actual chart rendering. Reusable by
+// any "x unified" chart (Comparison to Legends, and the Splits trend lines).
+//
+// This runs off a MutationObserver rather than the "plotly_hover" event.
+// Under fast real mouse movement, Plotly's own redraw of the hover box
+// isn't always finished by the time "plotly_hover" fires, so patching on
+// that event could get raced and briefly show the unpatched text. Reacting
+// to the DOM mutation itself means the patch runs after Plotly's write, no
+// matter when that lands.
+function wireUnifiedHoverDots(gd, headerLabel) {
+  if (unifiedHoverWired.has(gd)) return;
+  unifiedHoverWired.add(gd);
+  const prefix = headerLabel + " : ";
+  const patch = () => {
+    const titleEl = gd.querySelector(".legendtitletext");
+    if (titleEl && !titleEl.textContent.startsWith(prefix)) {
+      titleEl.textContent = prefix + titleEl.textContent;
+    }
+    gd.querySelectorAll(".hoverlayer .legendlines .js-line").forEach(lineEl => {
+      if (lineEl.style.display !== "none") lineEl.style.display = "none";
+      const layersGroup = lineEl.closest(".layers");
+      if (layersGroup && !layersGroup.querySelector(".custom-dot")) {
+        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        dot.setAttribute("class", "custom-dot");
+        dot.setAttribute("cx", "20");
+        dot.setAttribute("cy", "0");
+        dot.setAttribute("r", "4");
+        dot.setAttribute("fill", lineEl.style.stroke);
+        layersGroup.appendChild(dot);
+      }
+    });
+  };
+  new MutationObserver(patch).observe(gd, { childList: true, subtree: true, characterData: true });
+}
+
+// ─────────────────────────────────────────────
+// SPLITS TAB
+// ─────────────────────────────────────────────
+function renderSplitsTab(df) {
+  // ── Home & Away Splits (all opponents) ─────
+  renderHomeAwaySplit(df, {
+    homeDonut: "donut-home", homeGames: "kpi-home-games", homeRecord: "kpi-home-record",
+    awayDonut: "donut-away", awayGames: "kpi-away-games", awayRecord: "kpi-away-record"
+  });
+  plotTrendLines("chart-trend-homeaway", computeSiteWinPctTrend(df), {
+    xTitle: "Season", yTitle: "Win %", yTickFormat: ".0%", yRange: [0, 1.05],
+    hoverFormat: ".1%", headerLabel: "Season"
+  });
+
+  // ── Home & Away Splits vs ranked-at-time-of-game opponents ─
+  const rankedAtGame = df.filter(r => r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25);
+  renderHomeAwaySplit(rankedAtGame, {
+    homeDonut: "donut-home-ranked", homeGames: "kpi-home-r-games", homeRecord: "kpi-home-r-record",
+    awayDonut: "donut-away-ranked", awayGames: "kpi-away-r-games", awayRecord: "kpi-away-r-record"
+  });
+  plotTrendLines("chart-trend-homeaway-ranked", computeSiteWinPctTrend(rankedAtGame), {
+    xTitle: "Season", yTitle: "Win %", yTickFormat: ".0%", yRange: [0, 1.05],
+    hoverFormat: ".1%", headerLabel: "Season"
+  });
+
+  // ── Notre Dame Ranked vs Unranked Splits ───
+  renderNdRankSplit(df);
+  plotTrendLines("chart-trend-avgrank", computeAvgRankTrend(df), {
+    xTitle: "Season", yTitle: "Average Ranking", yTickFormat: "d", yRange: [26, 1],
+    hoverFormat: ".1f", headerLabel: "Season"
+  });
+}
+
+// Home/Away donut + stat-card pair — reused for both the all-opponents and
+// ranked-opponents-only sections (same shape, different pre-filtered rows).
+function renderHomeAwaySplit(rows, ids) {
+  const agg = { Home: { w: 0, l: 0 }, Away: { w: 0, l: 0 } };
+  rows.forEach(r => {
+    if (r.site !== "Home" && r.site !== "Away") return;
+    if (r.win) agg[r.site].w++;
+    else if (r.loss) agg[r.site].l++;
+  });
+
+  plotDonut(ids.homeDonut, agg.Home.w, agg.Home.l, "Home<br>Win %");
+  document.getElementById(ids.homeGames).textContent = agg.Home.w + agg.Home.l || "—";
+  document.getElementById(ids.homeRecord).textContent = `${agg.Home.w}-${agg.Home.l}`;
+
+  plotDonut(ids.awayDonut, agg.Away.w, agg.Away.l, "Away<br>Win %");
+  document.getElementById(ids.awayGames).textContent = agg.Away.w + agg.Away.l || "—";
+  document.getElementById(ids.awayRecord).textContent = `${agg.Away.w}-${agg.Away.l}`;
+}
+
+// ND Ranked/Unranked donuts + the four drill-down stat cards, and stashes
+// each category's rows for the "View Game Details" modal.
+function renderNdRankSplit(df) {
+  const ndRanked   = df.filter(r => r.ndRankClean >= 1 && r.ndRankClean <= 25);
+  const ndUnranked = df.filter(r => !(r.ndRankClean >= 1 && r.ndRankClean <= 25));
+
+  splitsDetailData.nd_r_opp_u = ndRanked.filter(r => !(r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25));
+  splitsDetailData.nd_r_opp_r = ndRanked.filter(r => r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25);
+  splitsDetailData.nd_u_opp_r = ndUnranked.filter(r => r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25);
+  splitsDetailData.nd_u_opp_u = ndUnranked.filter(r => !(r.oppRankAtGame >= 1 && r.oppRankAtGame <= 25));
+
+  const ndRankedWL = ndRanked.reduce((s, r) => ({ w: s.w + r.win, l: s.l + r.loss }), { w: 0, l: 0 });
+  plotDonut("donut-nd-ranked", ndRankedWL.w, ndRankedWL.l, "ND Ranked<br>Win %");
+
+  const ndUnrankedWL = ndUnranked.reduce((s, r) => ({ w: s.w + r.win, l: s.l + r.loss }), { w: 0, l: 0 });
+  plotDonut("donut-nd-unranked", ndUnrankedWL.w, ndUnrankedWL.l, "ND Unranked<br>Win %");
+
+  fillSplitStat("kpi-nd-r-opp-u", splitsDetailData.nd_r_opp_u);
+  fillSplitStat("kpi-nd-r-opp-r", splitsDetailData.nd_r_opp_r);
+  fillSplitStat("kpi-nd-u-opp-r", splitsDetailData.nd_u_opp_r);
+  fillSplitStat("kpi-nd-u-opp-u", splitsDetailData.nd_u_opp_u);
+}
+
+function fillSplitStat(elId, rows) {
+  const w = rows.reduce((s, r) => s + r.win, 0);
+  const l = rows.reduce((s, r) => s + r.loss, 0);
+  const total = w + l;
+  document.getElementById(elId).textContent =
+    total > 0 ? `${w}-${l} (${(w / total * 100).toFixed(1)}%)` : "—";
+}
+
+// Buckets rows into 3-year windows when "All" coaches are selected (so the
+// trend charts stay legible over 135+ seasons); a single coach's own games
+// are few enough to show season-by-season instead. Shared by every Splits
+// trend chart — only the aggregation done per bucket differs.
+function bucketSeason(rows, seasonField = "season") {
+  if (selectedCoach !== "All") {
+    return rows.map(r => ({ row: r, displaySeason: r[seasonField] }));
+  }
+  const maxSeason = Math.max(...rows.map(r => r[seasonField]));
+  return rows.map(r => {
+    const bucket = Math.floor((maxSeason - r[seasonField]) / 3) * 3;
+    return { row: r, displaySeason: maxSeason - bucket };
+  });
+}
+
+function computeSiteWinPctTrend(rows) {
+  const tagged = bucketSeason(rows.filter(r => r.site === "Home" || r.site === "Away"));
+  const agg = {};
+  tagged.forEach(({ row, displaySeason }) => {
+    if (!agg[displaySeason]) agg[displaySeason] = { Home: { w: 0, g: 0 }, Away: { w: 0, g: 0 } };
+    agg[displaySeason][row.site].g++;
+    agg[displaySeason][row.site].w += row.win;
+  });
+  const seasons = Object.keys(agg).map(Number).sort((a, b) => a - b);
+  const homeX = [], homeY = [], awayX = [], awayY = [];
+  seasons.forEach(s => {
+    if (agg[s].Home.g > 0) { homeX.push(s); homeY.push(agg[s].Home.w / agg[s].Home.g); }
+    if (agg[s].Away.g > 0) { awayX.push(s); awayY.push(agg[s].Away.w / agg[s].Away.g); }
+  });
+  return [
+    { name: "Home", x: homeX, y: homeY, color: C_BLUE },
+    { name: "Away", x: awayX, y: awayY, color: C_GREEN }
+  ];
+}
+
+// ND avg rank vs Opponent avg rank needs a genuine two-stage average (mean
+// of per-season means, not a single pass over every row) to match the
+// source app: seasons with fewer games shouldn't be swamped by seasons with
+// more when they're later averaged together into a 3-year bucket.
+function computeAvgRankTrend(rows) {
+  const eligible = rows.filter(r => !Number.isNaN(r.ndRankClean));   // drop "NO POLL" ND Rank rows
+
+  const bySeason = {};
+  eligible.forEach(r => {
+    const oppVal = Number.isNaN(r.oppRankAtGame) ? 26 : r.oppRankAtGame;
+    if (!bySeason[r.season]) bySeason[r.season] = { ndSum: 0, oppSum: 0, n: 0 };
+    bySeason[r.season].ndSum += r.ndRankClean;
+    bySeason[r.season].oppSum += oppVal;
+    bySeason[r.season].n++;
+  });
+  const seasonAvgs = Object.keys(bySeason).map(Number).map(s => ({
+    season: s,
+    ndAvg: bySeason[s].ndSum / bySeason[s].n,
+    oppAvg: bySeason[s].oppSum / bySeason[s].n
+  }));
+
+  let finalRows;
+  if (selectedCoach !== "All") {
+    finalRows = seasonAvgs.map(r => ({ displaySeason: r.season, ndAvg: r.ndAvg, oppAvg: r.oppAvg }));
+  } else {
+    const maxSeason = Math.max(...seasonAvgs.map(r => r.season));
+    const byBucket = {};
+    seasonAvgs.forEach(r => {
+      const bucket = Math.floor((maxSeason - r.season) / 3) * 3;
+      const displaySeason = maxSeason - bucket;
+      if (!byBucket[displaySeason]) byBucket[displaySeason] = { ndSum: 0, oppSum: 0, n: 0 };
+      byBucket[displaySeason].ndSum += r.ndAvg;
+      byBucket[displaySeason].oppSum += r.oppAvg;
+      byBucket[displaySeason].n++;
+    });
+    finalRows = Object.keys(byBucket).map(Number).map(s => ({
+      displaySeason: s,
+      ndAvg: byBucket[s].ndSum / byBucket[s].n,
+      oppAvg: byBucket[s].oppSum / byBucket[s].n
+    }));
+  }
+  finalRows.sort((a, b) => a.displaySeason - b.displaySeason);
+
+  return [
+    { name: "Notre Dame Avg Rank", x: finalRows.map(r => r.displaySeason), y: finalRows.map(r => r.ndAvg), color: C_BLUE },
+    { name: "Opponent Avg Rank",   x: finalRows.map(r => r.displaySeason), y: finalRows.map(r => r.oppAvg), color: C_GREEN }
+  ];
+}
+
+// Generic "x unified" line-chart helper — every trend line in the app (here
+// and Comparison to Legends) is a small set of named series over time, so
+// this is the one place that shape gets drawn.
+function plotTrendLines(elId, series, opts) {
+  const traces = series.map(s => ({
+    type: "scatter", mode: "lines", name: s.name,
+    x: s.x, y: s.y,
+    line: { color: s.color, width: 2.5 },
+    hovertemplate: `${s.name} : %{y:${opts.hoverFormat}}<extra></extra>`
+  }));
+
+  const allX = traces.flatMap(t => t.x);
+  const xTicks = integerAxisTicks(allX);
+
+  const el = document.getElementById(elId);
+  const render = () => {
+    Plotly.react(elId, traces, {
+      height: 420,
+      plot_bgcolor: "white",
+      margin: { t: 20, b: 70, l: 65, r: 20 },
+      hovermode: "x unified",
+      hoverlabel: { bgcolor: "white", bordercolor: C_BLUE, font: { size: 12 } },
+      xaxis: { title: opts.xTitle, gridcolor: "#e1e8f2", ...xTicks, range: paddedRange(allX, xTicks.dtick), zeroline: false },
+      yaxis: { title: opts.yTitle, tickformat: opts.yTickFormat, range: opts.yRange, gridcolor: "#e1e8f2" },
+      legend: { orientation: "h", y: -0.22 }
+    }, { responsive: true });
+  };
+  render();
+  requestAnimationFrame(render);
+
+  wireUnifiedHoverDots(el, opts.headerLabel);
+}
+
+// ─────────────────────────────────────────────
+// SPLITS TAB — DETAIL MODAL
+// ─────────────────────────────────────────────
+const SPLITS_DETAIL_CONFIG = {
+  nd_r_opp_u: {
+    title: "Notre Dame Ranked, Opponent Unranked",
+    cols:    ["season", "Opponent", "Result", "ndScore", "oppScore", "ndRankDisplay"],
+    headers: ["Season", "Opponent", "Result", "ND Score", "Opp Score", "ND Rank"]
+  },
+  nd_r_opp_r: {
+    title: "Notre Dame Ranked, Opponent Ranked",
+    cols:    ["season", "Opponent", "Result", "ndScore", "oppScore", "ndRankDisplay", "oppRankDisplay"],
+    headers: ["Season", "Opponent", "Result", "ND Score", "Opp Score", "ND Rank", "Opp Rank"]
+  },
+  nd_u_opp_r: {
+    title: "Notre Dame Unranked, Opponent Ranked",
+    cols:    ["season", "Opponent", "Result", "ndScore", "oppScore", "oppRankDisplay"],
+    headers: ["Season", "Opponent", "Result", "ND Score", "Opp Score", "Opp Rank"]
+  },
+  nd_u_opp_u: {
+    title: "Notre Dame Unranked, Opponent Unranked",
+    cols:    ["season", "Opponent", "Result", "ndScore", "oppScore"],
+    headers: ["Season", "Opponent", "Result", "ND Score", "Opp Score"]
+  }
+};
+
+function openSplitsDetail(category) {
+  const config = SPLITS_DETAIL_CONFIG[category];
+  const rows = (splitsDetailData[category] || []).slice().sort((a, b) => b.season - a.season);
+
+  document.getElementById("detail-modal-title").textContent = config.title + " — Game Details";
+  document.getElementById("detail-modal-thead").innerHTML =
+    "<tr>" + config.headers.map(h => `<th>${h}</th>`).join("") + "</tr>";
+  document.getElementById("detail-modal-tbody").innerHTML = rows.length
+    ? rows.map(r => "<tr>" + config.cols.map(c => `<td>${r[c] ?? ""}</td>`).join("") + "</tr>").join("")
+    : `<tr><td colspan="${config.headers.length}" style="text-align:center; color:var(--text-muted); padding:24px;">No games in this category.</td></tr>`;
+
+  document.getElementById("detail-modal-overlay").classList.add("active");
+}
+
+function closeDetailModal() {
+  document.getElementById("detail-modal-overlay").classList.remove("active");
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeDetailModal();
+});
+
+// ─────────────────────────────────────────────
+// OPPONENTS TAB
+// ─────────────────────────────────────────────
+function renderOpponentsTab(df) {
+  if (!globalOpponentStats) globalOpponentStats = computeGlobalOpponentStats();
+
+  document.getElementById("opp-sort-select").value = oppSortBy;
+
+  const oppSummary = computeOpponentSummary(df);
+  const minGames = selectedCoach === "All" ? 5 : 2;
+  const sorted = oppSortBy === "Games"
+    ? oppSummary.slice().sort((a, b) => b.games - a.games)
+    : oppSummary.filter(r => r.games >= minGames).sort((a, b) => b.winPct - a.winPct);
+  const topN = sorted.slice(0, oppDisplayCount);
+
+  plotHorizontalBar("chart-opp-games", topN, {
+    title: "Total Games", xTitle: "Games Played",
+    valueFn: r => r.games, textFn: r => String(r.games),
+    color: C_BLUE
+  });
+  plotHorizontalBar("chart-opp-winpct", topN, {
+    title: "Win Percentage", xTitle: "Win Percentage",
+    valueFn: r => r.winPct, textFn: r => (r.winPct * 100).toFixed(1) + "%",
+    colorFn: r => winColorGrad(r.winPct), xTickFormat: ".0%", xRange: [0, 1]
+  });
+
+  renderRanksAmongstPeers(df, topN);
+}
+
+function onOppSortChange() {
+  oppSortBy = document.getElementById("opp-sort-select").value;
+  renderTab("opponents");
+}
+function onOppShowMore() {
+  oppDisplayCount += 10;
+  renderTab("opponents");
+}
+function onOppReset() {
+  oppDisplayCount = 10;
+  renderTab("opponents");
+}
+
+// Per-opponent totals for whichever rows are currently in view (all coaches,
+// or the selected coach's games only).
+function computeOpponentSummary(df) {
+  const byOpp = {};
+  df.forEach(r => {
+    const opp = r["Opponent"];
+    if (!byOpp[opp]) byOpp[opp] = { games: 0, wins: 0 };
+    byOpp[opp].games++;
+    byOpp[opp].wins += r.win;
+  });
+  return Object.entries(byOpp).map(([opponent, v]) => ({
+    opponent, games: v.games, wins: v.wins, winPct: v.wins / v.games
+  }));
+}
+
+// Stats that don't depend on which coach is selected — every coach's own
+// record against each opponent (for the peer-rank lookup), each opponent's
+// win % against legendary coaches only, and each opponent's win % against
+// all ND coaches combined. Computed once and cached, same spirit as the
+// source app's @st.cache_data helpers.
+function computeGlobalOpponentStats() {
+  const byOppCoach = {};
+  allData.forEach(r => {
+    const key = r["Opponent"] + "||" + r["ND Coach"];
+    if (!byOppCoach[key]) byOppCoach[key] = { opponent: r["Opponent"], coach: r["ND Coach"], games: 0, wins: 0 };
+    byOppCoach[key].games++;
+    byOppCoach[key].wins += r.win;
+  });
+  const byOpponent = {};
+  Object.values(byOppCoach).forEach(r => {
+    r.winPct = r.wins / r.games;
+    (byOpponent[r.opponent] ||= []).push(r);
+  });
+
+  // Rank each coach's win % among every coach who's faced that opponent
+  // (ties share the same, lower rank — matches pandas' rank(method="min")).
+  const rankMap = {};
+  Object.entries(byOpponent).forEach(([opp, coachRows]) => {
+    coachRows.forEach(r => {
+      const rank = 1 + coachRows.filter(x => x.winPct > r.winPct).length;
+      rankMap[opp + "||" + r.coach] = { rank, totalCoaches: coachRows.length };
+    });
+  });
+
+  const legendByOpp = {}, allByOpp = {};
+  allData.forEach(r => {
+    const opp = r["Opponent"];
+    if (!allByOpp[opp]) allByOpp[opp] = { games: 0, wins: 0 };
+    allByOpp[opp].games++;
+    allByOpp[opp].wins += r.win;
+    if (r.isLegend) {
+      if (!legendByOpp[opp]) legendByOpp[opp] = { games: 0, wins: 0 };
+      legendByOpp[opp].games++;
+      legendByOpp[opp].wins += r.win;
+    }
+  });
+
+  const legendWinPct = {};
+  Object.entries(legendByOpp).forEach(([opp, v]) => { legendWinPct[opp] = v.wins / v.games; });
+  const allSummary = {};
+  Object.entries(allByOpp).forEach(([opp, v]) => { allSummary[opp] = { games: v.games, wins: v.wins, winPct: v.wins / v.games }; });
+
+  return { rankMap, legendWinPct, allSummary };
+}
+
+function winColorGrad(pct) {
+  if (pct < 0.5) {
+    if (pct < 0.35) return "#a50f15";
+    if (pct < 0.4)  return "#de2d26";
+    return "#fb6a4a";
+  }
+  if (pct < 0.7) {
+    if (pct < 0.55) return "#fec300";
+    if (pct < 0.6)  return "#ffb302";
+    return "#fd8d3c";
+  }
+  if (pct < 0.8) return "#a1d99b";
+  if (pct < 0.9) return "#41ab5d";
+  return "#005a32";
+}
+
+// Horizontal "leaderboard" bar chart — Opponent names on the y-axis, ranked
+// row (topN[0]) at the top, value label set inside the bar's own end so no
+// extra margin is needed just for labels. Shared by the Games and Win %
+// charts; only the value/color/format differ between them.
+function plotHorizontalBar(elId, topN, opts) {
+  const el = document.getElementById(elId);
+  const render = () => {
+    const w = el.parentElement.offsetWidth || 400;
+    Plotly.react(elId, [{
+      type: "bar",
+      orientation: "h",
+      y: topN.map(r => r.opponent),
+      x: topN.map(opts.valueFn),
+      customdata: topN.map(r => [r.games, r.winPct]),
+      marker: { color: opts.colorFn ? topN.map(opts.colorFn) : opts.color },
+      text: topN.map(opts.textFn),
+      textposition: "inside",
+      insidetextanchor: "end",
+      textfont: { color: "white", size: 12 },
+      hovertemplate: "%{y}<br>Games: %{customdata[0]}<br>Win %: %{customdata[1]:.1%}<extra></extra>"
+    }], {
+      title: { text: opts.title, x: 0.5 },
+      width: w,
+      height: Math.max(topN.length * 35, 150),
+      plot_bgcolor: "white",
+      margin: { t: 40, b: 45, l: 190, r: 20 },
+      hoverlabel: HOVER_STYLE,
+      xaxis: {
+        title: opts.xTitle, gridcolor: "#e1e8f2", zeroline: false,
+        ...(opts.xTickFormat ? { tickformat: opts.xTickFormat } : {}),
+        ...(opts.xRange ? { range: opts.xRange } : {})
+      },
+      yaxis: { autorange: "reversed" }
+    }, { responsive: false }).then(() => {
+      // Plotly renders y-axis category labels flush against the plot area
+      // (~1px gap) with no layout property that opens it up — tried
+      // ticklabelstandoff (not recognized on a category axis in this Plotly
+      // version) and trailing whitespace in the labels (collapsed to zero
+      // width). Shifting each label's own SVG x-position left is the one
+      // approach that actually moves the rendered text.
+      el.querySelectorAll(".ytick text").forEach(t => {
+        t.setAttribute("x", parseFloat(t.getAttribute("x")) - 10);
+      });
+    });
+  };
+  render();
+  requestAnimationFrame(render);
+}
+
+function renderRanksAmongstPeers(df, topN) {
+  const container = document.getElementById("opp-ranks-container");
+
+  if (selectedCoach === "All") {
+    container.innerHTML = `<p class="muted-note">Select an individual coach above to view rank comparisons amongst peers.</p>`;
+    return;
+  }
+
+  const { rankMap, legendWinPct, allSummary } = globalOpponentStats;
+  const coachStatsByOpp = {};
+  computeOpponentSummary(df).forEach(r => { coachStatsByOpp[r.opponent] = r; });
+
+  const pctStr = v => (v == null || isNaN(v)) ? "—" : (v * 100).toFixed(1) + "%";
+  const signedPctStr = v => (v == null || isNaN(v)) ? "—" : (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + "%";
+  const cellClass = v => (v == null || isNaN(v) || v === 0) ? "" : (v > 0 ? "cell-positive" : "cell-negative");
+
+  const rows = topN.map(t => {
+    const opp = t.opponent;
+    const coachStat = coachStatsByOpp[opp];
+    const allStat = allSummary[opp] || { games: 0, wins: 0, winPct: NaN };
+    const rankInfo = rankMap[opp + "||" + selectedCoach];
+    const legendPct = legendWinPct[opp];
+    const winSelected = coachStat ? coachStat.winPct : NaN;
+    return {
+      opponent: opp,
+      winSelected,
+      games: allStat.games,
+      wins: allStat.wins,
+      winAll: allStat.winPct,
+      rankAmongAll: rankInfo ? `${rankInfo.rank}/${rankInfo.totalCoaches}` : "—",
+      winLegends: legendPct,
+      compAll: winSelected - allStat.winPct,
+      compLegends: legendPct !== undefined ? winSelected - legendPct : NaN
+    };
+  });
+
+  const theadHtml = `<tr>
+    <th>Opponent</th><th>Win % Selected Coach</th><th>Games</th><th>Wins</th>
+    <th>Win % All ND Coaches</th><th>Rank Amongst All</th><th>Win % Legends</th>
+    <th>Comparison to All Coaches</th><th>Comparison to Legends</th>
+  </tr>`;
+  const tbodyHtml = rows.map(r => `<tr>
+    <td>${r.opponent}</td>
+    <td>${pctStr(r.winSelected)}</td>
+    <td>${r.games}</td>
+    <td>${r.wins}</td>
+    <td>${pctStr(r.winAll)}</td>
+    <td>${r.rankAmongAll}</td>
+    <td>${pctStr(r.winLegends)}</td>
+    <td class="${cellClass(r.compAll)}">${signedPctStr(r.compAll)}</td>
+    <td class="${cellClass(r.compLegends)}">${signedPctStr(r.compLegends)}</td>
+  </tr>`).join("");
+
+  container.innerHTML = `<div class="table-scroll"><table class="detail-table"><thead>${theadHtml}</thead><tbody>${tbodyHtml}</tbody></table></div>`;
+}
+
+// ─────────────────────────────────────────────
+// OPPONENT FOCUS TAB
+// ─────────────────────────────────────────────
+function hl(value, cls) { return `<span class="${cls}">${value}</span>`; }
+
+// The narrative uses the FULL history against this opponent (every coach),
+// independent of the global coach selector — only the "Coach Opponent
+// Overview" section below it is coach-filtered.
+function renderOpponentFocusTab() {
+  const oppRows = allData.filter(r => r["Opponent"] === focusOpponent);
+  renderFocusNarrative(oppRows);
+
+  const coachRows = selectedCoach === "All"
+    ? oppRows
+    : oppRows.filter(r => r["ND Coach"] === selectedCoach);
+  renderFocusCoachOverview(coachRows);
+}
+
+function pctOf(w, n) { return n > 0 ? Math.round((w / n) * 1000) / 10 : null; }
+
+function renderFocusNarrative(rows) {
+  const el = document.getElementById("focus-narrative");
+  if (rows.length === 0) {
+    el.innerHTML = `No historical matchups found between Notre Dame and ${focusOpponent}.`;
+    return;
+  }
+
+  const bySite = { Home: { w: 0, n: 0 }, Away: { w: 0, n: 0 }, Neutral: { w: 0, n: 0 } };
+  rows.forEach(r => {
+    if (bySite[r.site]) { bySite[r.site].n++; if (r.win) bySite[r.site].w++; }
+  });
+  const homePct = pctOf(bySite.Home.w, bySite.Home.n);
+  const awayPct = pctOf(bySite.Away.w, bySite.Away.n);
+
+  const locParts = [];
+  if (homePct !== null || awayPct !== null) {
+    if (homePct !== null && awayPct !== null) {
+      if (homePct > awayPct) {
+        locParts.push(`Notre Dame has historically been more successful at home in this matchup, winning ${hl(homePct + "%", "hl-good")} of home games compared with ${hl(awayPct + "%", "hl-neutral")} on the road.`);
+      } else if (awayPct > homePct) {
+        locParts.push(`Interestingly, Notre Dame has performed better on the road, winning ${hl(awayPct + "%", "hl-good")} of away matchups versus ${hl(homePct + "%", "hl-neutral")} at home.`);
+      } else {
+        locParts.push(`Notre Dame shows no meaningful home-or-away advantage in this series, winning ${hl(homePct + "%", "hl-neutral")} of games in both environments.`);
+      }
+    } else if (homePct !== null) {
+      locParts.push(`Notre Dame has been stronger at home in this series, winning ${hl(homePct + "%", "hl-good")} of home contests.`);
+    } else {
+      locParts.push(`Notre Dame has actually been more successful on the road, winning ${hl(awayPct + "%", "hl-good")} of away games.`);
+    }
+  }
+
+  const ndRanked = rows.filter(r => !Number.isNaN(r.ndRankClean) && r.ndRankClean <= 25);
+  const ndUnranked = rows.filter(r => Number.isNaN(r.ndRankClean) || r.ndRankClean > 25);
+  const vsRankedPct = pctOf(ndRanked.filter(r => r.win).length, ndRanked.length);
+  const vsUnrankedPct = pctOf(ndUnranked.filter(r => r.win).length, ndUnranked.length);
+  locParts.push(`When Notre Dame enters the game ranked, they win ${hl((vsRankedPct ?? "—") + "%", "hl-good")} of the time, compared with ${hl((vsUnrankedPct ?? "—") + "%", "hl-neutral")} when unranked.`);
+
+  const parts = [locParts.join(" ") + "<br><br>"];
+
+  // Margins
+  const margins = rows.map(r => r.ndScore - r.oppScore);
+  const avgMargin = Math.round((margins.reduce((a, b) => a + b, 0) / margins.length) * 10) / 10;
+  const closeGamesPct = margins.filter(m => Math.abs(m) <= 7).length / margins.length * 100;
+  const blowoutsPct = margins.filter(m => Math.abs(m) >= 18).length / margins.length * 100;
+
+  const descriptor = closeGamesPct > 50 ? "tight, one-score battles"
+    : blowoutsPct > 40 ? "wide-margin contests"
+    : "competitive, back-and-forth matchups";
+  const marginIsGood = avgMargin >= 0;
+  const marginCls = marginIsGood ? "hl-good" : "hl-bad";
+  const marginLeader = marginIsGood ? "Notre Dame" : focusOpponent;
+
+  parts.push(
+    `These meetings tend to feature ${descriptor}, with games typically decided by about ${hl(Math.abs(avgMargin) + " points", marginCls)}, ` +
+    `favoring ${hl(marginLeader, marginCls)} across the full history of the matchup. ` +
+    `Roughly ${hl(Math.round(closeGamesPct) + "%", "hl-neutral")} of games are one-score contests, while ${hl(Math.round(blowoutsPct) + "%", "hl-neutral")} end in blowouts.<br><br>`
+  );
+
+  // Recent momentum + streaks
+  const byDateDesc = rows.slice().sort((a, b) => b.dateObj - a.dateObj);
+  const recent5 = byDateDesc.slice(0, 5);
+  const recentWins = recent5.filter(r => r.win).length;
+  const recentLosses = recent5.filter(r => r.loss).length;
+  const recentCls = recentWins > recentLosses ? "hl-good" : recentLosses > recentWins ? "hl-bad" : "hl-neutral";
+
+  const byDateAsc = rows.slice().sort((a, b) => a.dateObj - b.dateObj);
+  const longestStreak = target => {
+    let max = 0, cur = 0;
+    byDateAsc.forEach(r => {
+      if (r["Result"] === target) { cur++; max = Math.max(max, cur); }
+      else cur = 0;
+    });
+    return max;
+  };
+  const longestWinStreak = longestStreak("W");
+  const longestLossStreak = longestStreak("L");
+
+  let currentStreak = 1;
+  for (let i = byDateAsc.length - 1; i > 0; i--) {
+    if (byDateAsc[i]["Result"] === byDateAsc[i - 1]["Result"]) currentStreak++;
+    else break;
+  }
+  const currentStreakType = byDateAsc[byDateAsc.length - 1]["Result"] === "W" ? "winning" : "losing";
+  const streakCls = currentStreakType === "winning" ? "hl-good" : "hl-bad";
+
+  const mostRecent = byDateDesc[0];
+  const yr = mostRecent.dateObj.getFullYear();
+  const nd = mostRecent.ndScore, opp = mostRecent.oppScore;
+  const winner = nd > opp ? "Notre Dame" : focusOpponent;
+  const loser = winner === "Notre Dame" ? focusOpponent : "Notre Dame";
+  const finalScoreCls = winner === "Notre Dame" ? "hl-good" : "hl-bad";
+
+  parts.push(
+    `In the past five meetings, Notre Dame is ${hl(recentWins + "-" + recentLosses, recentCls)}. ` +
+    `Their longest winning streak in the series is ${hl(longestWinStreak, "hl-good")}, while their longest losing streak is ${hl(longestLossStreak, "hl-bad")}. ` +
+    `They currently hold a ${hl(currentStreakType, streakCls)} streak of ${hl(currentStreak + " game(s)", streakCls)}. ` +
+    `The most recent matchup came in ${yr} under Coach ${mostRecent["ND Coach"]}, when ${winner} defeated ${loser} ${hl(Math.max(nd, opp) + "-" + Math.min(nd, opp), finalScoreCls)}.`
+  );
+
+  el.innerHTML = parts.join(" ");
+}
+
+function formatDateLocal(d) {
+  const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, "0"), day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+function renderFocusCoachOverview(rows) {
+  const totalGames = rows.length;
+  const wins = rows.filter(r => r.win).length;
+  const losses = rows.filter(r => r.loss).length;
+  const winPct = pctOf(wins, totalGames);
+
+  const ndRanks = rows.map(r => r.ndRankClean).filter(v => !Number.isNaN(v));
+  const oppRanks = rows.map(r => r.oppRankAtGame).filter(v => !Number.isNaN(v));
+  const avg = arr => arr.length ? Math.round((arr.reduce((a, b) => a + b, 0) / arr.length) * 10) / 10 : "N/A";
+
+  document.getElementById("focus-kpi-games").textContent = totalGames;
+  document.getElementById("focus-kpi-record").textContent = totalGames > 0 ? `${wins}-${losses} (${winPct}%)` : "—";
+  document.getElementById("focus-kpi-nd-rank").textContent = avg(ndRanks);
+  document.getElementById("focus-kpi-opp-rank").textContent = avg(oppRanks);
+
+  const sorted = rows.slice().sort((a, b) => b.dateObj - a.dateObj);
+  const thead = `<tr><th>Date</th><th>Site</th><th>Result</th><th>ND Coach</th><th>Opp Coach</th><th>ND Score</th><th>Opp Score</th><th>ND Rank</th><th>Opp Rank</th></tr>`;
+  const tbody = sorted.map(r => `<tr>
+    <td>${formatDateLocal(r.dateObj)}</td>
+    <td>${r.site}</td>
+    <td>${r["Result"]}</td>
+    <td>${r["ND Coach"]}</td>
+    <td>${r["Opp Coach"]}</td>
+    <td>${r.ndScore}</td>
+    <td>${r.oppScore}</td>
+    <td>${r.ndRankDisplay}</td>
+    <td>${r.oppRankDisplay}</td>
+  </tr>`).join("");
+
+  document.getElementById("focus-game-table").innerHTML = `<thead>${thead}</thead><tbody>${tbody}</tbody>`;
+}
+</script>
+</body>
+</html>

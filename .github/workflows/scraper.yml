@@ -41,10 +41,6 @@ jobs:
       - name: Run scraper
         run: python scripts/scrape_and_update.py
 
-      - name: Dump chromedriver log on failure
-        if: failure()
-        run: cat chromedriver.log || echo "No chromedriver.log found"
-
       - name: Commit updated data.json
         run: |
           if git diff --quiet -- data.json; then

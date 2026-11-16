@@ -43,11 +43,16 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+# The target site is HTTP-only. Recent Chrome versions silently try to
+# upgrade top-level navigations to HTTPS; when that fails (no TLS on this
+# site) the navigation is blocked (net::ERR_BLOCKED_BY_CLIENT) instead of
+# falling back to HTTP, so disable the upgrade.
+chrome_options.add_argument("--disable-features=HttpsUpgrades")
 
 
 def create_driver():
     print("Initializing Chrome WebDriver...")
-    service = Service(ChromeDriverManager().install(), log_output="chromedriver.log", service_args=["--verbose"])
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
     print("Chrome WebDriver initialized successfully")
     return driver

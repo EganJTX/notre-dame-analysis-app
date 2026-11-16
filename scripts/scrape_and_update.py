@@ -43,6 +43,10 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+# Works around headless Chrome crashing on launch/navigation with an empty
+# error message ("DevToolsActivePort file doesn't exist") on some runner/
+# Chrome version combinations.
+chrome_options.add_argument("--remote-debugging-port=9222")
 
 
 def create_driver():
@@ -61,19 +65,29 @@ except Exception as e:
     driver = create_driver()
 
 try:
-    print("Loading page...")
-    driver.get("http://alexanderbess.com/NDfootball_2.php")
+    for attempt in (1, 2):
+        try:
+            print("Loading page...")
+            driver.get("http://alexanderbess.com/NDfootball_2.php")
 
-    wait = WebDriverWait(driver, 10)
-    search_btn = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//input[@type='submit' and @value='Search']"))
-    )
+            wait = WebDriverWait(driver, 10)
+            search_btn = wait.until(
+                EC.element_to_be_clickable((By.XPATH, "//input[@type='submit' and @value='Search']"))
+            )
 
-    print("Clicking search button...")
-    search_btn.click()
+            print("Clicking search button...")
+            search_btn.click()
 
-    wait.until(EC.presence_of_element_located((By.ID, "gameListTable")))
-    time.sleep(3)
+            wait.until(EC.presence_of_element_located((By.ID, "gameListTable")))
+            time.sleep(3)
+            break
+        except Exception as e:
+            if attempt == 2:
+                raise
+            print(f"Page load failed ({e}). Recreating driver and retrying...")
+            driver.quit()
+            time.sleep(2)
+            driver = create_driver()
 
     print("Parsing table data...")
     soup = BeautifulSoup(driver.page_source, "html.parser")

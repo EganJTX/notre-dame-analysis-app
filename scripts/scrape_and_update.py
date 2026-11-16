@@ -43,11 +43,14 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
-# The target site is HTTP-only. Recent Chrome versions silently try to
-# upgrade top-level navigations to HTTPS; when that fails (no TLS on this
-# site) the navigation is blocked (net::ERR_BLOCKED_BY_CLIENT) instead of
-# falling back to HTTP, so disable the upgrade.
+# The target site is HTTP-only and its HTTPS port serves a mismatched
+# cert. Recent Chrome versions silently try to upgrade http:// navigations
+# to HTTPS; when that TLS handshake fails, the navigation is blocked
+# (net::ERR_BLOCKED_BY_CLIENT) instead of falling back to HTTP. Disabling
+# the heuristic feature alone isn't enough on some Chrome builds, so also
+# explicitly mark this origin as exempt from the upgrade/secure-context checks.
 chrome_options.add_argument("--disable-features=HttpsUpgrades")
+chrome_options.add_argument("--unsafely-treat-insecure-origin-as-secure=http://alexanderbess.com")
 
 
 def create_driver():

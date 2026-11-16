@@ -43,15 +43,11 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--window-size=1920,1080")
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
-# Works around headless Chrome crashing on launch/navigation with an empty
-# error message ("DevToolsActivePort file doesn't exist") on some runner/
-# Chrome version combinations.
-chrome_options.add_argument("--remote-debugging-port=9222")
 
 
 def create_driver():
     print("Initializing Chrome WebDriver...")
-    service = Service(ChromeDriverManager().install())
+    service = Service(ChromeDriverManager().install(), log_output="chromedriver.log", service_args=["--verbose"])
     driver = webdriver.Chrome(service=service, options=chrome_options)
     print("Chrome WebDriver initialized successfully")
     return driver
